@@ -32,6 +32,11 @@ app.get('/random', (req, res) => {
     res.json({ random: randomNumber });
 });
 
+app.get('/random2', (req, res) => {
+    const randomNumber = Math.floor(Math.random() * 1000) + 1;
+    res.json({ random: randomNumber });
+});
+
 app.listen(PORT, (req, res) => {
     console.log(`Application is running on port ${PORT}`)
 })
