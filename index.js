@@ -31,6 +31,24 @@ app.get('/status', (req, res) => {
     res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
 
+app.post('/koko-payment', express.json(), (req, res) => {
+    const { amount, currency, userId } = req.body;
+    if (!amount || !currency || !userId) {
+        return res.status(400).json({ error: 'amount, currency, and userId are required' });
+    }
+    // Simulate payment processing
+    res.status(200).json({
+        message: 'Payment processed successfully',
+        payment: {
+            amount,
+            currency,
+            userId,
+            status: 'success',
+            transactionId: Math.random().toString(36).substr(2, 9)
+        }
+    });
+});
+
 app.listen(PORT, (req, res) => {
     console.log(`Application is running on port ${PORT}`)
 })
