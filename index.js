@@ -27,6 +27,21 @@ app.post('/register', express.json(), (req, res) => {
     res.status(201).send('Registration successful');
 });
 
+app.get('/random', (req, res) => {
+    const randomNumber = Math.floor(Math.random() * 100) + 1;
+    res.json({ random: randomNumber });
+});
+
+app.get('/random2', (req, res) => {
+    const randomNumber = Math.floor(Math.random() * 1000) + 1;
+    res.json({ random: randomNumber });
+});
+
+app.get('/random3', (req, res) => {
+    const randomNumber = Math.floor(Math.random() * 1000) + 1;
+    res.json({ random: randomNumber });
+});
+
 app.get('/status', (req, res) => {
     res.json({ status: 'OK', timestamp: new Date().toISOString() });
 });
