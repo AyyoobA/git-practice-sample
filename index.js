@@ -27,6 +27,10 @@ app.post('/register', express.json(), (req, res) => {
     res.status(201).send('Registration successful');
 });
 
+app.get('/status', (req, res) => {
+    res.json({ status: 'OK', timestamp: new Date().toISOString() });
+});
+
 app.listen(PORT, (req, res) => {
     console.log(`Application is running on port ${PORT}`)
 })
