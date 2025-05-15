@@ -27,6 +27,11 @@ app.post('/register', express.json(), (req, res) => {
     res.status(201).send('Registration successful');
 });
 
+app.get('/random', (req, res) => {
+    const randomNumber = Math.floor(Math.random() * 100) + 1;
+    res.json({ random: randomNumber });
+});
+
 app.listen(PORT, (req, res) => {
     console.log(`Application is running on port ${PORT}`)
 })
