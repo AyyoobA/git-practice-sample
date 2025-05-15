@@ -27,15 +27,6 @@ app.post('/register', express.json(), (req, res) => {
     res.status(201).send('Registration successful');
 });
 
-app.post('/payment', express.json(), (req, res) => {
-    const { amount, method } = req.body;
-    if (!amount || !method) {
-        return res.status(400).send('Amount and payment method are required');
-    }
-    // Simulate payment processing
-    res.status(200).send(`Payment of $${amount} via ${method} processed successfully`);
-});
-
 app.listen(PORT, (req, res) => {
     console.log(`Application is running on port ${PORT}`)
 })
